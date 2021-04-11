@@ -55,6 +55,9 @@ public class WordCountApp {
         KafkaStreams streams = new KafkaStreams(wordCountApp.createTopology(), config);
         streams.start();
 
+        // Printing the topology
+        System.out.println(streams.toString());
+
 //        // shutdown hook to correctly close the streams application
 //        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
 //
