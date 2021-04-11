@@ -20,21 +20,21 @@ public class StreamsStarterApp {
         config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
-        StreamsBuilder builder = new StreamsBuilder();
-
-        KStream<String, String> kStream = builder.stream("input-topic-name");
-        // do stuff
-        kStream.to("word-count-output");
-
-        KafkaStreams streams = new KafkaStreams(builder.build(), config);
-        streams.cleanUp(); // only do this in dev - not in prod
-        streams.start();
-
-        // print the topology
-        streams.localThreadsMetadata().forEach(data -> System.out.println(data));
-
-        // shutdown hook to correctly close the streams application
-        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+//        StreamsBuilder builder = new StreamsBuilder();
+//
+//        KStream<String, String> kStream = builder.stream("input-topic-name");
+//        // do stuff
+//        kStream.to("word-count-output");
+//
+//        KafkaStreams streams = new KafkaStreams(builder.build(), config);
+//        streams.cleanUp(); // only do this in dev - not in prod
+//        streams.start();
+//
+//        // print the topology
+//        streams.localThreadsMetadata().forEach(data -> System.out.println(data));
+//
+//        // shutdown hook to correctly close the streams application
+//        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
 
     }
 
